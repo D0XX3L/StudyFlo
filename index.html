@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>StudyFlo</title>
+<!--links-->
+<link rel="stylesheet" href="style.css">
+<script src="app.js" ></script>
+<!-- Google Fonts: Plus Jakarta Sans & Outfit (Free for commercial use - SIL OFL) -->
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--header/top navigation bar-->
+
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <span class="brand-flower">🌸</span>
+        <span class="brand-title">StudyFlo</span>
+        <span class="brand-subtitle">Your Study Companion</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#home" class="nav-link active"><i data-lucide="home"></i> Home</a>
+        <a href="#subjects" class="nav-link"><i data-lucide="book-open"></i> Subjects</a>
+        <a href="#tasks" class="nav-link"><i data-lucide="check-square"></i> Tasks</a>
+        <a href="#progress" class="nav-link"><i data-lucide="bar-chart-2"></i> Progress</a>
+      </nav>
+
+      <div class="nav-actions">
+        <span class="streak-badge"><i data-lucide="flame"></i> 5-Day Streak</span>
+        <button class="avatar-btn" title="Student Profile">
+          
+        </button>
+      </div>
+    </div>
+  </header>
+  <!--main content dashboard -->
+  <main class="dashboard-wrapper">
+  <!--welcome banner-->
+ <section class ="welcome-card">
+  <div class="welcome-content">
+    <span class="data-chip" id="CurrentDate">Monday, 10th June 2024</span> 
+    <h1>Welcome Back, User!✨</h1>
+    <p>Ready to conquer your studies today?</p>
+    <p>You have <strong id="PendingCount">3</strong> tasks left to finish today.Let's make the most of it!</p>
+  </div>
+
+  <div class="welcome-image">
+   <button class="btn btn-primary" id="OpenTaskModal">
+<i data-lucide="plus"></i> New Task
+    </button>
+
+<button class="btn btn-secondary" id="scrollTimer">
+          <i data-lucide="timer"></i> Focus Mode
+        </button>
+      </div>
+    </section>
+!-- Dashboard Content Grid -->
+    <div class="dashboard-grid">
+      
+      <!-- Left Column: Tasks & Subjects -->
+      <div class="main-column">
+        
+        <!-- Today's Tasks Section -->
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h2>Today's Priorities</h2>
+              <p class="subtitle">Focus on what matters today</p>
+            </div>
+            <span class="badge" id="completionRate">1/4 Done</span>
+          </div>
+
+          <ul class="task-list" id="taskList">
+            <li class="task-item completed">
+              <label class="custom-checkbox">
+                <input type="checkbox" checked>
+                <span class="checkmark"></span>
+              </label>
+              <div class="task-info">
+                <span class="task-title">Review Data Structures Lecture 6</span>
+                <span class="task-meta">Computer Science • 09:00 AM</span>
+              </div>
+              <span class="tag tag-cs">CS</span>
+              <button class="delete-btn" title="Remove"><i data-lucide="trash-2"></i></button>
+            </li>
+
+            <li class="task-item">
+              <label class="custom-checkbox">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <div class="task-info">
+                <span class="task-title">Solve Calculus II Problem Set #4</span>
+                <span class="task-meta">Mathematics • Due 4:00 PM</span>
+              </div>
+              <span class="tag tag-math">Math</span>
+              <button class="delete-btn" title="Remove"><i data-lucide="trash-2"></i></button>
+            </li>
+
+            <li class="task-item">
+              <label class="custom-checkbox">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <div class="task-info">
+                <span class="task-title">Read Physics Chapter 3: Thermodynamics</span>
+                <span class="task-meta">Physics • Due 7:30 PM</span>
+              </div>
+              <span class="tag tag-physics">Physics</span>
+              <button class="delete-btn" title="Remove"><i data-lucide="trash-2"></i></button>
+            </li>
+
+            <li class="task-item">
+              <label class="custom-checkbox">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <div class="task-info">
+                <span class="task-title">Outline Research Paper for Literature</span>
+                <span class="task-meta">Humanities • Evening</span>
+              </div>
+              <span class="tag tag-lit">Literature</span>
+              <button class="delete-btn" title="Remove"><i data-lucide="trash-2"></i></button>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Active Subjects Grid -->
+        <section class="card subjects-section">
+          <div class="card-header">
+            <div>
+              <h2>Current Subjects</h2>
+              <p class="subtitle">Semester Course Overview</p>
+            </div>
+            <a href="#subjects" class="text-link">View all →</a>
+          </div>
+
+          <div class="subjects-grid">
+            <div class="subject-card">
+              <div class="subject-top">
+                <span class="subject-icon math-bg"><i data-lucide="calculator"></i></span>
+                <span class="subject-tag">4 Tasks</span>
+              </div>
+              <h3>Calculus II</h3>
+              <p>Differential Equations & Series</p>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" style="width: 75%;"></div>
+              </div>
+              <span class="progress-label">75% Complete</span>
+            </div>
+
+            <div class="subject-card">
+              <div class="subject-top">
+                <span class="subject-icon cs-bg"><i data-lucide="code-2"></i></span>
+                <span class="subject-tag">2 Tasks</span>
+              </div>
+              <h3>Data Structures</h3>
+              <p>Binary Trees & Graph Algorithms</p>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" style="width: 85%;"></div>
+              </div>
+              <span class="progress-label">85% Complete</span>
+            </div>
+
+            <div class="subject-card">
+              <div class="subject-top">
+                <span class="subject-icon physics-bg"><i data-lucide="atom"></i></span>
+                <span class="subject-tag">3 Tasks</span>
+              </div>
+              <h3>General Physics</h3>
+              <p>Mechanics & Wave Motion</p>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" style="width: 50%;"></div>
+              </div>
+              <span class="progress-label">50% Complete</span>
+            </div>
+
+            <div class="subject-card">
+              <div class="subject-top">
+                <span class="subject-icon lit-bg"><i data-lucide="book-marked"></i></span>
+                <span class="subject-tag">1 Task</span>
+              </div>
+              <h3>World Literature</h3>
+              <p>Comparative Narrative Forms</p>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" style="width: 30%;"></div>
+              </div>
+              <span class="progress-label">30% Complete</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Right Column: Focus Timer, Deadlines & Weekly Progress -->
+      <aside class="sidebar-column">
+        
+        <!-- Interactive Pomodoro Timer -->
+        <section class="card timer-card" id="pomodoroSection">
+          <div class="timer-tabs">
+            <button class="timer-tab active" data-time="1500">Pomodoro</button>
+            <button class="timer-tab" data-time="300">Short Break</button>
+            <button class="timer-tab" data-time="900">Long Break</button>
+          </div>
+          <div class="timer-display" id="timeDisplay">25:00</div>
+          <p class="timer-quote">“Small steps lead to great milestones.”</p>
+          <div class="timer-controls">
+            <button class="btn btn-primary" id="toggleTimer"><i data-lucide="play"></i> Start</button>
+            <button class="btn btn-secondary" id="resetTimer"><i data-lucide="rotate-ccw"></i> Reset</button>
+          </div>
+        </section>
+
+        <!-- Upcoming Deadlines -->
+        <section class="card">
+          <div class="card-header">
+            <h3>Upcoming Deadlines</h3>
+            <span class="badge badge-warm">Next 7 Days</span>
+          </div>
+          <ul class="deadline-list">
+            <li class="deadline-item">
+              <div class="deadline-date urgent">
+                <span class="day">10</span>
+                <span class="month">Oct</span>
+              </div>
+              <div class="deadline-info">
+                <h4>Calculus Midterm Quiz</h4>
+                <p>In 2 days • Room 302</p>
+              </div>
+            </li>
+            <li class="deadline-item">
+              <div class="deadline-date">
+                <span class="day">14</span>
+                <span class="month">Oct</span>
+              </div>
+              <div class="deadline-info">
+                <h4>Data Structures Project 1</h4>
+                <p>In 6 days • GitHub Classroom</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Weekly Progress Card -->
+        <section class="card progress-card">
+          <h3>Weekly Completion</h3>
+          <p class="subtitle">Target: 20 study hours / week</p>
+          <div class="stats-box">
+            <div class="stat-number">14.5 <span>hrs</span></div>
+            <div class="stat-status">72% achieved</div>
+          </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" style="width: 72%;"></div>
+          </div>
+        </section>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="taskModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Create New Task</h3>
+        <button class="close-modal" id="closeTaskModal">&times;</button>
+      </div>
+
+      <form id="newTaskForm">
+        <div class="form-group">
+          <label for="taskTitle">Task Title</label>
+          <input type="text" id="taskTitle" placeholder="e.g., Read Calculus Chapter 4" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="taskSubject">Subject</label>
+            <select id="taskSubject">
+              <option value="Math">Calculus II</option>
+              <option value="CS">Data Structures</option>
+              <option value="Physics">General Physics</option>
+              <option value="Literature">World Literature</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="taskDue">Due Detail</label>
+            <input type="text" id="taskDue" placeholder="e.g., Tomorrow 5:00 PM">
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelModal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </main>
+
+</body>
+</html>
